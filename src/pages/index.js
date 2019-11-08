@@ -1,21 +1,9 @@
 import React from "react"
-import styled, { createGlobalStyle } from 'styled-components'
 
-const Nav = styled.nav`
-    background-color: red;
-`;
-
-const GlobalStyle = createGlobalStyle`
-    body {
-        margin: 0;
-        padding: 0;
-    }
-`;
+import Layout from "../components/layout"
 
 export default () => (
-    <>
-        <GlobalStyle/>
-        <Nav>nav</Nav>
-        <div>Hello world! fclgv</div>
-    </>
+  <Layout>
+    <div>Hello world! fclgv</div>
+  </Layout>
 )
