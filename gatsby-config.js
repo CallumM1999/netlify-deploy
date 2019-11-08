@@ -5,6 +5,8 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  plugins: [`gatsby-plugin-styled-components`]
+  siteMetadata: {
+    title: "Title from siteMetadata",
+  },
+  plugins: [`gatsby-plugin-styled-components`],
 }
