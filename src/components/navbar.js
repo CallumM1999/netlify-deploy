@@ -34,29 +34,39 @@ const Links = styled.ul`
     display: block;
     cursor: pointer;
 
+    &.active,
     &:hover {
       text-decoration: underline;
       text-decoration-color: hsl(200, 50%, 30%);
+    }
 
+    &:hover {
       margin-top: -1px;
       margin-bottom: 1px;
     }
   }
 `
 
-export default () => (
-  <Navbar>
-    <Title>The Callum</Title>
-    <Links>
-      <li>
-        <Link to="/blog/">Blog</Link>
-      </li>
-      <li>
-        <Link to="/about/">About</Link>
-      </li>
-      <li>
-        <Link to="/contact/">Contact</Link>
-      </li>
-    </Links>
-  </Navbar>
-)
+export default () => {
+  const pages = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about/" },
+    { name: "Blog", path: "/blog/" },
+    { name: "Contact", path: "/contact/" },
+  ]
+
+  return (
+    <Navbar>
+      <Title>The Callum</Title>
+      <Links>
+        {pages.map(({ name, path }) => (
+          <li>
+            <Link activeClassName="active" to={path}>
+              {name}
+            </Link>
+          </li>
+        ))}
+      </Links>
+    </Navbar>
+  )
+}
