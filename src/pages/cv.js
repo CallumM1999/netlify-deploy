@@ -4,6 +4,6 @@ import Layout from "../components/layout"
 
 export default () => (
   <Layout>
-    <h1>Page not found</h1>
+    <h1>CV</h1>
   </Layout>
 )

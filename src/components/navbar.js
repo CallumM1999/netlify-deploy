@@ -6,10 +6,32 @@ const Navbar = styled.nav`
   background-color: hsl(200, 50%, 50%);
   padding: 30px;
 `
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 500px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`
 
 const Title = styled.h1`
   margin: 0;
   display: block;
+`
+
+const Burger = styled.div`
+  display: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #0a0a0a;
+  border-radius: 3px;
+
+  @media (max-width: 500px) {
+    display: block;
+  }
 `
 
 const Links = styled.ul`
@@ -20,6 +42,10 @@ const Links = styled.ul`
   margin-left: -15px;
   margin-bottom: -10px;
   flex-wrap: wrap;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 
   li {
     display: block;
@@ -38,6 +64,8 @@ const Links = styled.ul`
     &:hover {
       text-decoration: underline;
       text-decoration-color: hsl(200, 50%, 30%);
+      border: none;
+      outline: none;
     }
 
     &:hover {
@@ -53,20 +81,24 @@ export default () => {
     { name: "About", path: "/about/" },
     { name: "Blog", path: "/blog/" },
     { name: "Contact", path: "/contact/" },
+    { name: "CV", path: "/cv/" },
   ]
 
   return (
     <Navbar>
-      <Title>The Callum</Title>
-      <Links>
-        {pages.map(({ name, path }) => (
-          <li>
-            <Link activeClassName="active" to={path}>
-              {name}
-            </Link>
-          </li>
-        ))}
-      </Links>
+      <Container>
+        <Title>The Callum</Title>
+        <Burger />
+        <Links>
+          {pages.map(({ name, path }) => (
+            <li>
+              <Link activeClassName="active" to={path}>
+                {name}
+              </Link>
+            </li>
+          ))}
+        </Links>
+      </Container>
     </Navbar>
   )
 }
